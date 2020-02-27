@@ -37,6 +37,17 @@ export class HeroService {
     return this.http.get<Hero>(endpoint + 'heroes/' + id);
   }
 
+  updateHero(hero: Hero): Observable<Hero> {
+    this.messageService.add(`HeroService: update hero id=${hero.ID}`);
+    return this.http.post<Hero>(endpoint + 'heroes/' + hero.ID, JSON.stringify(hero));
+  }
+
+  create(hero: Hero){
+    this.messageService.add(`HeroService: Created Hero. His ID is=${hero.ID}`);
+
+  }
+
+
 }
 
 
