@@ -33,7 +33,7 @@ export class HeroService {
   }
 
   getHero(id: number): Observable<Hero> {
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    this.messageService.add(`HeroService: got details of the hero with id=${id}`);
     return this.http.get<Hero>(endpoint + 'heroes/' + id);
   }
 
@@ -42,9 +42,9 @@ export class HeroService {
     return this.http.post<Hero>(endpoint + 'heroes/' + hero.ID, JSON.stringify(hero));
   }
 
-  create(hero: Hero){
+  createHero(hero: Hero){
     this.messageService.add(`HeroService: Created Hero. His ID is=${hero.ID}`);
-
+    return this.http.put(endpoint + 'heroes/', JSON.stringify(hero[hero.ID]));
   }
 
 

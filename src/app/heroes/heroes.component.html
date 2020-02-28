@@ -1,5 +1,7 @@
 <h2>My Heroes</h2>
 
+<button (click)="createHero()">Create</button>
+
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.ID}}">
